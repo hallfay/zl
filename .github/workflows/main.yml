@@ -25,11 +25,11 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile your_script.py  # 替换为你的脚本名称
+        pyinstaller --onefile dabao.py  # 替换为你的脚本名称
       shell: cmd
 
     - name: Upload EXE
       uses: actions/upload-artifact@v3
       with:
         name: my_exe
-        path: dist/your_script.exe  # 替换为生成的.exe文件路径
+        path: dist/dabao.exe  # 替换为生成的.exe文件路径
