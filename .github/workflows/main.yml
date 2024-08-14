@@ -3,20 +3,20 @@ name: Build EXE
 on:
   push:
     branches:
-      - main  # 触发工作流的分支
+      - main
 
 jobs:
   build:
-    runs-on: windows-latest  # 在Windows环境下运行
+    runs-on: windows-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # 检出代码仓库
+      uses: actions/checkout@v2 
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # 选择Python版本
+        python-version: '3.9'
 
     - name: Install dependencies
       run: |
@@ -25,11 +25,11 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile dabao.py  # 替换为你的脚本名称
+        pyinstaller --onefile dabao.py
       shell: cmd
 
     - name: Upload EXE
       uses: actions/upload-artifact@v3
       with:
         name: my_exe
-        path: dist/dabao.exe  # 替换为生成的.exe文件路径
+        path: dist/dabao.exe
